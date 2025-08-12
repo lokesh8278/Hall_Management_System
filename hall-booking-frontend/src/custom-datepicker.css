@@ -1,0 +1,11 @@
+.react-datepicker__day--highlighted-available {
+  background-color: #4caf50;
+  color: white;
+  border-radius: 50%;
+}
+
+.react-datepicker__day--highlighted-booked {
+  background-color: #f44336;
+  color: white;
+  border-radius: 50%;
+}

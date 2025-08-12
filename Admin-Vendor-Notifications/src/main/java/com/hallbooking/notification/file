@@ -1,0 +1,50 @@
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAvclN61UR2COcMWXDIa8IZi9NWUaQSxr8",
+    authDomain: "springprojecthallmange.firebaseapp.com",
+    projectId: "springprojecthallmange",
+    storageBucket: "springprojecthallmange.firebasestorage.app",
+    messagingSenderId: "989480938609",
+    appId: "1:989480938609:web:75533808680f1a46cdffd0"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+</script>
+
+
+
+
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyAvclN61UR2COcMWXDIa8IZi9NWUaQSxr8",
+  authDomain: "springprojecthallmange.firebaseapp.com",
+  projectId: "springprojecthallmange",
+  storageBucket: "springprojecthallmange.firebasestorage.app",
+  messagingSenderId: "989480938609",
+  appId: "1:989480938609:web:073e99e56bf8db9bcdffd0"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+
+
+
+
+
+
+
+BK4foAFUJn8P55VGE-S2-X7PAyKGsqUN_a6pv5ZAWqlI8Ewn0bB0Tx7pNwcO84cISnAMwBfTw-0vfdLTV1GIyP4

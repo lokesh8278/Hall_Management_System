@@ -1,0 +1,36 @@
+/* Base calendar customizations */
+.react-calendar {
+  border: none;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff9f3;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.react-calendar__tile {
+  background: #fff;
+  border-radius: 8px;
+  transition: 0.2s ease;
+}
+
+.react-calendar__tile--active {
+  background: #ffdb58 !important;
+  color: black;
+  font-weight: bold;
+}
+
+.react-calendar__tile--now {
+  background: #ffd70033;
+  border: 2px dashed #ffdb58;
+}
+
+.react-calendar__tile:hover {
+  background: #ffeaa7;
+  color: black;
+}
+
+.booked-date {
+  background: #ff6b6b !important;
+  color: white !important;
+  text-decoration: line-through;
+}

@@ -1,0 +1,207 @@
+server:
+  port: 8080
+  address: 0.0.0.0
+  servlet:
+    context-path: /
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+    min-response-size: 1024
+  http2:
+    enabled: true
+
+spring:
+  application:
+    name: hallbooking-system
+
+  # Database Optimization
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hallbooking_main?reWriteBatchedInserts=true&stringtype=unspecified
+    username: postgres
+    password: Admin@123
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 25
+      minimum-idle: 5
+      connection-timeout: 20000
+      idle-timeout: 300000
+      max-lifetime: 1200000
+      leak-detection-threshold: 60000
+
+  # JPA Optimization
+  jpa:
+    hibernate:
+      ddl-auto: validate  # Changed from update for production safety
+    show-sql: false  # Disabled for performance
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: false
+        jdbc:
+          lob:
+            non_contextual_creation: true
+          batch_size: 25
+          fetch_size: 100
+        cache:
+          use_second_level_cache: true
+          use_query_cache: true
+          region:
+            factory_class: org.hibernate.cache.jcache.JCacheRegionFactory
+        generate_statistics: false
+        order_inserts: true
+        order_updates: true
+        batch_versioned_data: true
+
+  # Redis Configuration
+  redis:
+    host: localhost
+    port: 6379
+    timeout: 3000ms
+    jedis:
+      pool:
+        max-active: 10
+        max-idle: 8
+        min-idle: 2
+        max-wait: -1ms
+
+  # Cache Configuration
+  cache:
+    type: redis
+    redis:
+      time-to-live: 1800000  # 30 minutes
+      cache-null-values: false
+
+  # Mail Configuration
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: lokeshvasu4321@gmail.com
+    password: jrzm oced mpda inds
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          ssl:
+            trust: smtp.gmail.com
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000
+
+  # RabbitMQ Configuration
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    template:
+      retry:
+        enabled: true
+        max-attempts: 3
+    listener:
+      simple:
+        retry:
+          enabled: true
+          max-attempts: 3
+
+  # Main Configuration
+  main:
+    allow-bean-definition-overriding: true
+    lazy-initialization: false
+
+  # Quartz Configuration
+  quartz:
+    auto-startup: true
+    job-store-type: memory
+    scheduler-name: HallBookingScheduler
+
+  # File Upload Configuration
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+      enabled: true
+
+# Application Specific Configuration
+file:
+  upload-dir: C:/uploads/
+
+# JWT Configuration
+jwt:
+  secret: Y6r91LoVQvKdYsz3YJvFYoV0uoyEhCWvKKr98RbwPhwTLC6J7C9mK4vY8EzAFV1G16kn8M0s7A25lVz1kzJcPA==
+  expiration: 3600000  # 1 hour
+  refresh-expiration: 25200000  # 7 hours
+
+# Twilio Configuration
+twilio:
+  account-sid: ACc7caffc8dfafb37b4e6e0754cce74ea0
+  auth-token: 28631525e6642fe7c8ced9f2d2942219
+  phone-number: +14134145301
+
+# Swagger Configuration
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+    tagsSorter: alpha
+    disable-swagger-default-url: true
+
+# Logging Configuration
+logging:
+  level:
+    root: INFO
+    org.springframework.security: WARN
+    org.springframework.amqp.rabbit: WARN
+    com.hallbooking.notification: INFO
+    com.hallbooking.userservice: INFO
+    com.hallbooking.bookingservice: INFO
+    com.hallbooking.hallservice: INFO
+    org.hibernate.SQL: WARN
+    org.springframework.web: WARN
+    org.springframework.cache: INFO
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# Management and Monitoring
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: when_authorized
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+# Performance Tuning
+  tomcat:
+    threads:
+      max: 200
+      min-spare: 10
+    connection-timeout: 20000
+    max-connections: 8192
+    accept-count: 100
+
+# Application Performance
+app:
+  performance:
+    cache:
+      default-ttl: 1800  # 30 minutes
+      max-entries: 1000
+    async:
+      core-pool-size: 4
+      max-pool-size: 12
+      queue-capacity: 25
+    file-processing:
+      max-concurrent: 6
+      timeout: 60

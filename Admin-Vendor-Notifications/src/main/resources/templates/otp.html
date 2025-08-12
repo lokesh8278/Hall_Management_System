@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="content">
+    <p>Hello,</p>
+    <p>Your one-time password (OTP) for registration is:</p>
+
+    <div style="font-size: 24px; font-weight: bold; color: #2c3e50; margin: 20px 0;">
+        [[${otp}]]
+    </div>
+
+    <p>This OTP is valid for 5 minutes. Please do not share it with anyone.</p>
+
+    <p>Thank you,<br/>Hall Booking Team</p>
+</div>
+</body>
+</html>
