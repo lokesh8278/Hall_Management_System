@@ -138,9 +138,9 @@ jwt:
 
 # Twilio Configuration
 twilio:
-  account-sid: ACc7caffc8dfafb37b4e6e0754cce74ea0
-  auth-token: 28631525e6642fe7c8ced9f2d2942219
-  phone-number: +14134145301
+  account-sid: ${TWILIO_ACCOUNT_SID}
+  auth-token: ${TWILIO_AUTH_TOKEN}
+  phone-number:  ${TWILIO_FROM_NUMBER}
 
 # Swagger Configuration
 springdoc:
