@@ -1,0 +1,29 @@
+# Java / Spring
+target/
+*.log
+*.iml
+*.class
+*.jar
+*.war
+*.ear
+.settings/
+.project
+.classpath
+
+# Node/React (if present)
+node_modules/
+dist/
+.build/
+.vite/
+*.local
+
+# OS/IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Secrets
+.env
+*.env
+application-local.yml
